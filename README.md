@@ -8,7 +8,7 @@ Dependencies
  
 Usage
 -----
-``html
+```html
 <!DOCTYPE html>
 <html>
 	<head>
@@ -31,4 +31,4 @@ Usage
 		</ul>
 	<body>
 </html>
-``
+```
