@@ -130,7 +130,7 @@ var Dabox = (function()
             var r = a.getAttribute("rel"), t;
             t = r.match(/Dabox\[([a-z0-9\_\-]+)\]/);
             t = t?t[1]:null;
-            if(t&&document.getElementById(t))
+            if(t)
             {
                 publicAPI.register(a, t);
             }
