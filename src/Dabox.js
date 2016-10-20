@@ -75,7 +75,7 @@ var Dabox = (function()
             e.stopPropagation();
             e.preventDefault();
         }
-        var rel = e.target["rel"]?e.target["rel"]:$(e.target).up("a").rel;
+        var rel = e.currentTarget.getAttribute("rel");
         Request.load(rel).onComplete(displayBoxAjax);
     }
 
