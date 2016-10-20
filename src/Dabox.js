@@ -136,7 +136,7 @@ var Dabox = (function()
             }
             if(t = r.match(/Dabox\[async\:([^\]]+)\]/))
             {
-                a.rel = t[1];
+                a.setAttribute('rel', t[1]);
                 a.addEventListener('click', aClickAsyncBox);
             }
         });
