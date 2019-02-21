@@ -8,30 +8,30 @@ var Dabox = (function()
         {
             if(!created)
                 createDaBox();
-            var a = document.getElementById("DaboxHide");
-            var b = document.getElementById("Dabox");
-            M4Tween.killTweensOf(a);
-            M4Tween.killTweensOf(b);
-            b.innerHTML = "";
-            b.style.width = "auto";
-            b.innerHTML = pContent;
-            a.style.display = "block";
-            b.style.display = "block";
-            b.style.filter = "alpha(opacity=0)";
-            M4Tween.to(a, .2, {"opacity":.95});
-            M4Tween.to(b, .3, {"opacity":1});
-            b.style.left = "50%";
-            b.style.marginLeft = "-"+(b.offsetWidth * .5)+"px";
-            var close = document.createElement("div");
-            a = document.createElement("a");
-            a.className = "icon-close";
-            a.href="#";
-            close.appendChild(a);
-            b.appendChild(close);
-            close.classList.add('close');
-            a.addEventListener('click', closeBoxHandler);
+            var overlay = document.getElementById("DaboxHide");
+            var box = document.getElementById("Dabox");
+            M4Tween.killTweensOf(overlay);
+            M4Tween.killTweensOf(box);
+            box.innerHTML = "";
+            box.style.width = "auto";
+            box.innerHTML = pContent;
+            overlay.style.display = "block";
+            box.style.display = "block";
+            box.style.filter = "alpha(opacity=0)";
+            M4Tween.to(overlay, .2, {"opacity":.95});
+            M4Tween.to(box, .3, {"opacity":1});
+            box.style.left = "50%";
+            box.style.marginLeft = "-"+(box.offsetWidth * .5)+"px";
+            var closeBtn = document.createElement("div");
+            var cross = document.createElement("a");
+            cross.className = "icon-close";
+            cross.href="#";
+            closeBtn.appendChild(cross);
+            box.appendChild(closeBtn);
+            closeBtn.classList.add('close');
+            cross.addEventListener('click', closeBoxHandler);
             if(displayHandler)
-                displayHandler();
+                displayHandler(box, overlay, closeBtn);
         },
         hide:function()
         {
