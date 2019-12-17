@@ -39,7 +39,7 @@ var Dabox = (function()
             var b = document.getElementById("Dabox");
             M4Tween.killTweensOf(a);
             M4Tween.killTweensOf(b);
-            M4Tween.to(a, .3, {"opacity":0}).onComplete(function(){a.style.display="none";b.style.display="none";});
+            M4Tween.to(a, .3, {"opacity":0}).onComplete(function(){a.style.display="none";b.style.display="none";if(closeHandler){closeHandler();}});
             M4Tween.to(b, .2, {"opacity":0});
         },
         register:function(pElement, pIdContent)
@@ -61,11 +61,16 @@ var Dabox = (function()
         onDisplay:function(pHandler)
         {
             displayHandler = pHandler;
+        },
+        onClose:function(pHandler)
+        {
+            closeHandler = pHandler;
         }
     };
     var created = false;
     var content = {};
     var displayHandler;
+    var closeHandler;
 
     function aClickAsyncBox(e)
     {
