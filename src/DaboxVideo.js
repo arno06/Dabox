@@ -26,6 +26,7 @@
         span.classList.add("duration");
         span.innerHTML = minutes+":"+secondes;
         container.appendChild(span);
+        e.currentTarget.currentTime = duration * .5;
     }
 
     function clickHandler(e){
@@ -52,7 +53,7 @@
 
     function outHandler(e){
         clearInterval(timeout);
-        e.currentTarget.currentTime = 0;
+        e.currentTarget.currentTime = e.currentTarget.duration * .5;
         index = 0;
     }
 
